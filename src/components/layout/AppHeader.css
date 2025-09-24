@@ -1,4 +1,35 @@
-.nav {
+.header-layout {
     display: flex;
-    gap: 20px;
+    position: sticky;
+    top: 0;
+    justify-content: center;
+    background-color: black;
+}
+
+.header-nav {
+    display: flex;
+    gap: 100px;
+    font-family: 'MedievalSharp', cursive;
+}
+
+.active-link {
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: underline !important;
+    cursor: default;
+    transition: color 0.7s ease;
+}
+
+.active-link:hover {
+    color: #da864b;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    color: #da864b;
+    transition: color 0.7s ease;
+}
+
+.nav-link:hover {
+    color: #ffd8bd;
 }

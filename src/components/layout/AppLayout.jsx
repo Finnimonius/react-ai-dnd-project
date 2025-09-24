@@ -8,7 +8,7 @@ export default function AppLayout() {
   return (
     <Layout className='app-layout'>
       <AppHeader />
-      <Layout.Content className='app-content'>
+      <Layout.Content>
         <Outlet />
       </Layout.Content>
       <AppFooter />

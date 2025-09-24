@@ -8,7 +8,6 @@ const ParticlesBackground = () => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     
-    // Настройка размера canvas
     const resizeCanvas = () => {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
@@ -17,11 +16,9 @@ const ParticlesBackground = () => {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // Частицы
     const particles = []
-    const particleCount = 100
+    const particleCount = 50
 
-    // Цвета для D&D темы
     const colors = ['#ffd700', '#ff6b00', '#8B4513', '#a0522d', '#e6d6b2']
 
     class Particle {
@@ -39,7 +36,6 @@ const ParticlesBackground = () => {
         this.x += this.speedX
         this.y += this.speedY
         
-        // Возврат частицы при выходе за границы
         if (this.x > canvas.width) this.x = 0
         if (this.x < 0) this.x = canvas.width
         if (this.y > canvas.height) this.y = 0
@@ -57,12 +53,11 @@ const ParticlesBackground = () => {
       }
     }
 
-    // Создание частиц
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle())
     }
 
-    // Анимация
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       

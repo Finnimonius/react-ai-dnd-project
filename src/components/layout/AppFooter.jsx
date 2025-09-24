@@ -9,7 +9,7 @@ const footerStyle = {
 export default function AppFooter () {
     return (
         <Layout.Footer style={footerStyle}>
-            <div>Footer</div>
+            <div></div>
         </Layout.Footer>
     )
 }
