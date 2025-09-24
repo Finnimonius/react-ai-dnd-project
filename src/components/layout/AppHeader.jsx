@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Layout } from 'antd'
 import './AppHeader.css'
 
@@ -12,9 +12,9 @@ export default function AppHeader() {
     return (
         <Layout.Header style={headerStyle}>
             <div className='nav'>
-                <Link to='/'>Главная</Link>
-                <Link to='/CharacterCreator'>Создание персонажа</Link>
-                <Link to='/Game'>Играть</Link>
+                <NavLink to='/'>Главная</NavLink>
+                <NavLink to='/charactercreator'>Создание персонажа</NavLink>
+                <NavLink to='/game'>Играть</NavLink>
             </div>
         </Layout.Header>
     )

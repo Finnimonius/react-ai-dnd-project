@@ -1,28 +1,17 @@
 import { Layout } from 'antd'
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
-
-const contentStyle = {
-  textAlign: 'center',
-  backgroundColor: '#0958d9',
-};
-
-// const footerStyle = {
-//   textAlign: 'center',
-//   color: '#fff',
-//   backgroundColor: '#4096ff',
-// };
-const layoutStyle = {
-  borderRadius: 8,
-  overflow: 'hidden',
-};
+import { Outlet } from 'react-router-dom';
+import './AppLayout.css'
 
 export default function AppLayout() {
-    return (
-        <Layout style={layoutStyle}>
-            <AppHeader>Header</AppHeader>
-            <Layout.Content style={contentStyle}>Content</Layout.Content>
-            <AppFooter />
-        </Layout>
-    )
+  return (
+    <Layout className='app-layout'>
+      <AppHeader />
+      <Layout.Content className='app-content'>
+        <Outlet />
+      </Layout.Content>
+      <AppFooter />
+    </Layout>
+  )
 }

@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.active {
+  color: white;
+  cursor: default;
+}

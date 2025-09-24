@@ -1,0 +1,13 @@
+.app-layout {
+  font-family: 'Cormorant', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 200vh;
+  background-color: #fff;
+  color: #333;
+}
+
+.app-content {
+  padding: 20px;
+}
