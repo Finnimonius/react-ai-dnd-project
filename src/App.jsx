@@ -4,6 +4,8 @@ import AppLayout from './components/layout/AppLayout'
 import Home from './pages/Home'
 import CharacterCreator from './pages/CharacterCreator'
 import Game from './pages/Game'
+import Rules from './pages/Rules'
+import NotFoundPage from './pages/NotFoundPage'
 
 
 export default function App() {
@@ -11,8 +13,10 @@ export default function App() {
       <Routes>
         <Route path='/' element={<AppLayout />}>
           <Route index element={<Home />} />
+          <Route path='rules' element={<Rules />} />
           <Route path='charactercreator' element={<CharacterCreator />} />
           <Route path='game' element={<Game />} />
+          <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>
   )

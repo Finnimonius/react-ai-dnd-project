@@ -6,3 +6,20 @@ h1, h2, h3 {
 button {
   font-family: 'MedievalSharp', cursive;
 }
+
+:root {
+  --primary-red: rgb(237, 28, 36);
+  --primary-yellow: #ffd700;
+  --primary-brown: #8B4513;
+  --primary-black: #000000;
+  --primary-dark: #1a1003;
+  
+  --red-light: rgba(237, 28, 36, 0.8);
+  --red-dark: rgb(200, 20, 30);
+  --yellow-light: #fff5a5;
+  --brown-light: #a0522d;
+  --brown-dark: #5d4037;
+  
+  --text-light: #e6d6b2;
+  --text-dark: #2d1b07;
+}

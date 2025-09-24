@@ -1,35 +1,50 @@
 .header-layout {
-    display: flex;
+    height: auto;
     position: sticky;
     top: 0;
     justify-content: center;
     background-color: black;
+    margin-bottom: -20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 1rem 4rem;
+    transition: all 0.3s ease;
 }
 
 .header-nav {
     display: flex;
-    gap: 100px;
+    gap: 50px;
     font-family: 'MedievalSharp', cursive;
 }
 
 .active-link {
-    font-size: 1.2rem;
-    color: white;
+    color: #fff;
     text-decoration: underline !important;
     cursor: default;
-    transition: color 0.7s ease;
+    transition: color 0.3s ease;
 }
 
 .active-link:hover {
-    color: #da864b;
+    color: #fff;
 }
 
 .nav-link {
-    font-size: 1.2rem;
-    color: #da864b;
-    transition: color 0.7s ease;
+    color: rgb(237, 28, 36);
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #ffd8bd;
+    color: rgb(248, 225, 226);
+}
+
+.header-logo {
+    width: 170px;
+    display: block;
 }
