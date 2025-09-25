@@ -4,6 +4,7 @@ import logo from '../../assets/images/logos/main-logo.png'
 import './AppHeader.css'
 
 const setActive = ({ isActive }) => isActive ? 'active-link' : 'nav-link';
+const setActivePlay = ({ isActive }) => isActive ? 'active-link' : 'nav-link-play';
 
 
 export default function AppHeader() {
@@ -16,9 +17,13 @@ export default function AppHeader() {
                 <div className='header-nav'>
                     <NavLink to='/' className={setActive}>Главная</NavLink>
                     <NavLink to='/rules' className={setActive}>Правила</NavLink>
-                    <NavLink to='/rule' className={setActive}>Не найдено</NavLink>
-                    <NavLink to='/charactercreator' className={setActive}>Создание персонажа</NavLink>
-                    <NavLink to='/game' className={setActive}>Играть</NavLink>
+                    <NavLink to='/charactercreato' className={setActive}>Создание персонажа</NavLink>
+                    <NavLink to='/game' className={setActivePlay}>
+                        <span className="top-key"></span>
+                        <span className="text">Играть</span>
+                        <span className="bottom-key-1"></span>
+                        <span className="bottom-key-2"></span>
+                    </NavLink>
                 </div>
             </div>
         </Layout.Header>

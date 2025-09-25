@@ -7,21 +7,23 @@
     margin-bottom: -20px;
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
+    z-index: 1;
 }
 
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.1rem;
+    font-size: 22px;
+    letter-spacing: 1px;
     padding: 1rem 4rem;
     transition: all 0.3s ease;
 }
 
 .header-nav {
     display: flex;
-    gap: 50px;
-    font-family: 'MedievalSharp', cursive;
+    gap: 40px;
+    font-family: 'MedievalEnglish', cursive;
 }
 
 .active-link {
@@ -44,7 +46,18 @@
     color: rgb(248, 225, 226);
 }
 
+.nav-link-play {
+    color: rgb(237, 28, 36);
+    transition: color 0.3s ease;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.nav-link-play:hover {
+    color: rgb(248, 225, 226);
+}
+
 .header-logo {
-    width: 170px;
+    width: 300px;
     display: block;
 }

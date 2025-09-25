@@ -8,7 +8,6 @@
     padding: 2rem;
 }
 
-/* Пергаментный свиток */
 .parchment {
     background: linear-gradient(45deg, #f5f0e6, #e6d6b2);
     padding: 3rem 4rem;
@@ -21,24 +20,21 @@
     max-width: 600px;
     position: relative;
     text-align: center;
-    z-index: 2;
 }
 
-/* Кровавое пятно */
 .ink-stain {
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: 15px;
+    right: 10px;
     width: 120px;
     height: 120px;
-    background: radial-gradient(circle, var(--red-light) 0%, transparent 70%);
-    opacity: 0.3;
+    background-image: url('/src/assets/images/backgrounds/blood-404.png');
+    background-size: contain;
     border-radius: 50%;
-    filter: blur(5px);
 }
 
 .error-title {
-    font-family: 'MedievalSharp', cursive;
+    font-family: 'MedievalEnglish', cursive;
     font-size: 6rem;
     color: var(--primary-red);
     margin: 0;
@@ -49,7 +45,7 @@
 }
 
 .error-subtitle {
-    font-family: 'MedievalSharp', cursive;
+    font-family: 'MedievalEnglish', cursive;
     font-size: 1.8rem;
     color: var(--primary-brown);
     margin: 1rem 0;
@@ -58,7 +54,7 @@
 }
 
 .error-description {
-    font-family: 'Cormorant', serif;
+    font-family: 'MedievalEnglish', serif;
     font-size: 1.3rem;
     line-height: 1.6;
     color: var(--brown-dark);
@@ -125,6 +121,7 @@
 .return-button:hover {
     background: linear-gradient(45deg, var(--red-dark), var(--primary-red));
     transform: translateY(-3px);
+    color: #fff;
     box-shadow: 
         0 10px 25px rgba(237, 28, 36, 0.4),
         0 0 30px rgba(255, 215, 0, 0.3);

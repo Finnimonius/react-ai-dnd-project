@@ -1,5 +1,5 @@
 h1, h2, h3 {
-  font-family: 'MedievalSharp', cursive;
+  font-family: 'AngelusMedieval', cursive;
   color: #8B4513;
 }
 
@@ -22,4 +22,10 @@ button {
   
   --text-light: #e6d6b2;
   --text-dark: #2d1b07;
+}
+
+/* Скролл */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-red) var(--primary-black);
 }

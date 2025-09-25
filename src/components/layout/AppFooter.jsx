@@ -1,14 +1,9 @@
 import { Layout } from 'antd'
-
-const footerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: 'black',
-};
+import './AppFooter.css'
 
 export default function AppFooter () {
     return (
-        <Layout.Footer style={footerStyle}>
+        <Layout.Footer className='footer-layout'>
             <div></div>
         </Layout.Footer>
     )

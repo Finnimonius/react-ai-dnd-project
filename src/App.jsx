@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import CharacterCreator from './pages/CharacterCreator'
 import Game from './pages/Game'
 import Rules from './pages/Rules'
-import NotFoundPage from './pages/NotFoundPage'
+import NotFoundPage from './pages/Notfoundpage'
 
 
 export default function App() {
