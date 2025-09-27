@@ -14,10 +14,10 @@ export default defineConfig([
       reactRefresh.configs.vite,
     ],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 2022, // ← Обновите на 2022
       globals: globals.browser,
       parserOptions: {
-        ecmaVersion: 'latest',
+        ecmaVersion: 'latest', // ← или попробуйте 2022
         ecmaFeatures: { jsx: true },
         sourceType: 'module',
       },
