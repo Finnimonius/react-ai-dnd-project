@@ -9,7 +9,6 @@ const gameMainContainerStyle = {
 }
 
 export default function GameMain() {
-
     const { goToClassSelection } = useUIStore()
 
 

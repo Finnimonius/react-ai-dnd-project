@@ -1,12 +1,4 @@
 @font-face {
-  font-family: 'MedievalSharp';
-  src: url('../assets/fonts/MedievalSharp.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'AngelusMedieval';
   src: url('../assets/fonts/Angelus-Medieval.ttf') format('truetype');
   font-weight: normal;
