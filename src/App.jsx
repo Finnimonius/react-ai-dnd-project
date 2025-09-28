@@ -15,7 +15,10 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path='rules' element={<Rules />} />
           <Route path='charactercreator' element={<CharacterCreator />} />
-          <Route path='game' element={<Game />} />
+
+          <Route path='play' element={<Game />} />
+          <Route path="/play/:step" element={<Game />} />
+
           <Route path='*' element={<NotFoundPage />} />
         </Route>
       </Routes>

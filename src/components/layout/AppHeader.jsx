@@ -18,12 +18,7 @@ export default function AppHeader() {
                     <NavLink to='/' className={setActive}>Главная</NavLink>
                     <NavLink to='/rules' className={setActive}>Правила</NavLink>
                     <NavLink to='/charactercreato' className={setActive}>Создание персонажа</NavLink>
-                    <NavLink to='/game' className={setActivePlay}>
-                        <span className="top-key"></span>
-                        <span className="text">Играть</span>
-                        <span className="bottom-key-1"></span>
-                        <span className="bottom-key-2"></span>
-                    </NavLink>
+                    <NavLink to='/play' className={setActivePlay}>Играть</NavLink>
                 </div>
             </div>
         </Layout.Header>

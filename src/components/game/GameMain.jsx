@@ -1,5 +1,3 @@
-import { useUIStore } from "../stores/uiStore";
-
 const gameMainContainerStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -8,13 +6,10 @@ const gameMainContainerStyle = {
     padding: 40
 }
 
-export default function GameMain() {
-    const { goToClassSelection } = useUIStore()
-
-
+export default function GameMain({ onStartCreation }) {
     return (
         <div style={gameMainContainerStyle}>
-            <button onClick={goToClassSelection}>Создать персонажа</button>
+            <button onClick={onStartCreation}>Создать персонажа</button>
         </div>
     )
 }

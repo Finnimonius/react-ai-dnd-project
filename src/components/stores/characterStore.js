@@ -1,24 +1,36 @@
-import { create } from "zustand";
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 
-
-export const useCharacterStore = create((set, get) => ({
-    
-    selectedClass: null,
-    selectedRace: null,
-
-    selectClass: (classData) => set({selectedClass: classData}),
-    selectRace: (raceData) => set({selectedRace: raceData}),
-
-    getCharacter: () => {
-        const { selectedClass, selectRace } = get()
-        if(!selectedClass || !selectRace) return null
-
+export const useCharacterStore = create(
+  persist(
+    (set, get) => ({
+      selectedClass: null,
+      selectedRace: null,
+      
+      selectClass: (classData) => set({ selectedClass: classData }),
+      selectRace: (raceData) => set({ selectedRace: raceData }),
+      
+      getCharacter: () => {
+        const { selectedClass, selectedRace } = get()
+        if (!selectedClass || !selectedRace) return null
+        
         return {
-            class: selectedClass,
-            race: selectRace,
-            name: `${selectedClass} ${selectRace}`
+          class: selectedClass,
+          race: selectedRace,
+          name: `${selectedRace.name} ${selectedClass.name}`,
+          level: 1
         }
-    },
-
-    reset: () => set({ selectClass: null, selectedRace: null})
-}))
+      },
+      
+      hasCharacter: () => {
+        const { selectedClass, selectedRace } = get()
+        return !!(selectedClass && selectedRace)
+      },
+      
+      reset: () => set({ selectedClass: null, selectedRace: null })
+    }),
+    {
+      name: 'character-storage', 
+    }
+  )
+)

@@ -1,6 +1,5 @@
 import { RACES } from '../../utils/characterData/races'
-import { useUIStore } from '../stores/uiStore'
-import { useCharacterStore } from '../stores/characterStore' 
+import { useCharacterStore } from '../stores/characterStore'
 
 const gameMainContainerStyle = {
     display: 'flex',
@@ -10,20 +9,20 @@ const gameMainContainerStyle = {
     padding: 40
 }
 
-export default function RaceSelection () {
-    const { goToGameplay } = useUIStore()
-    const { selectedRace } = useCharacterStore()
+export default function RaceSelection({ onNext, onBack }) {
+    const { selectRace } = useCharacterStore()
 
     const handleSelectRace = (dataRace) => {
-        selectedRace(dataRace)
-        goToGameplay()
+        selectRace(dataRace)
+        onNext()
     }
 
     return (
         <div style={gameMainContainerStyle}>
+            <button onClick={onBack}>Назад</button>
             <ul>
                 {RACES.map(race => {
-                    return <li onClick={() => handleSelectRace(race)}>
+                    return <li onClick={() => handleSelectRace(race)} key={race.id}>
                         <h3>{race.name}</h3>
                         <p>{race.description}</p>
                     </li>
