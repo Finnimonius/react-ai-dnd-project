@@ -68,7 +68,7 @@
         0 0 30px rgba(212, 188, 135, 0.4);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .container {
         padding: 50px 50px 100px 50px;
     }
