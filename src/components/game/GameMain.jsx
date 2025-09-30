@@ -1,15 +1,11 @@
-const gameMainContainerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '90vh',
-    padding: 40
-}
+import './GameMain.css'
 
 export default function GameMain({ onStartCreation }) {
     return (
-        <div style={gameMainContainerStyle}>
-            <button onClick={onStartCreation}>Создать персонажа</button>
-        </div>
+        <section className='hero'>
+            <div className='hero-container'>
+                <button className='hero-btn' onClick={onStartCreation}>Начать путешествие</button>
+            </div>
+        </section>
     )
 }
