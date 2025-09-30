@@ -3,6 +3,10 @@ h1, h2, h3 {
   color: #8B4513;
 }
 
+p {
+  font-family: 'Cormorant', cursive;
+}
+
 button {
   font-family: 'Cormorant', cursive;
 }

@@ -1,38 +1,64 @@
+import warriorImg from '../../assets/images/characters/classes/warrior.png'
+import hunterImg from '../../assets/images/characters/classes/hunter.png'
+import banditImg from '../../assets/images/characters/classes/bandit.png'
+import witchhunterImg from '../../assets/images/characters/classes/witchhunter.png'
+import warlord from '../../assets/images/characters/classes/warlord.png'
+
 export const CLASSES = [
   {
-    id: 'fighter',
+    id: 'warrior',
     name: 'Воин',
-    description: 'Мастер боевых искусств, сильный и выносливый боец.',
-    hitDie: 10,
+    description: 'Мастер ближнего боя, непоколебимый защитник и символ стойкости на поле брани.',
+    hp: 12,
     primaryAbility: 'strength',
-    skills: ['Атлетика', 'Запугивание', 'Выживание'],
-    features: ['Боевой стиль', 'Вторая ветрость']
+    skills: ['Атлетика', 'Запугивание', 'Выживание', 'Тактика'],
+    features: ['Боевая ярость', 'Несокрушимая стойкость', 'Щитовой удар'],
+    img: warriorImg 
   },
   {
-    id: 'wizard',
-    name: 'Волшебник',
-    description: 'Исследователь магических тайн, владеющий мощными заклинаниями.',
-    hitDie: 6,
-    primaryAbility: 'intelligence',
-    skills: ['Магия', 'История', 'Расследование'],
-    features: ['Книга заклинаний', 'Магическое восстановление']
-  },
-  {
-    id: 'rogue',
-    name: 'Плут',
-    description: 'Хитрый и ловкий специалист скрытности и точных ударов.',
-    hitDie: 8,
+    id: 'hunter',
+    name: 'Охотник',
+    description: 'Искусный следопыт и меткий стрелок, чувствующий ритм дикой природы.',
+    hp: 10,
     primaryAbility: 'dexterity',
-    skills: ['Обман', 'Ловкость рук', 'Скрытность'],
-    features: ['Скрытая атака', 'Хитрое действие']
+    skills: ['Скрытность', 'Выживание', 'Внимание', 'Природа'],
+    features: ['Меткий выстрел', 'Следопыт', 'Звериная связь', 'Природная маскировка'],
+    img: hunterImg
   },
   {
-    id: 'cleric',
-    name: 'Жрец',
-    description: 'Посланник божества, несущий исцеление и божественную магию.',
-    hitDie: 8,
+    id: 'bandit',
+    name: 'Бандит',
+    description: 'Хитрый и беспринципный боец, мастер нечестных приемов и внезапных нападений.',
+    hp: 8,
+    primaryAbility: 'dexterity',
+    skills: ['Обман', 'Ловкость рук', 'Скрытность', 'Запугивание'],
+    features: ['Грязный прием', 'Внезапное нападение', 'Быстрое исчезновение', 'Карманная кража'],
+    img: banditImg
+  },
+  {
+    id: 'witchhunter',
+    name: 'Охотник на ведьм',
+    description: 'Безжалостный искатель магических угроз, вооруженный знаниями и стальной волей.',
+    hp: 8,
     primaryAbility: 'wisdom',
-    skills: ['Проницательность', 'Медицина', 'Убеждение'],
-    features: ['Божественное вмешательство', 'Изгнание нежити']
-  }
+    skills: ['Проницательность', 'Расследование', 'Магия', 'Убеждение'],
+    features: ['Магическое сопротивление', 'Разрушение чар', 'Божественный суд', 'Охота на колдунов'],
+    img: witchhunterImg
+  },
+  {
+  id: 'warlord',
+  name: 'Военачальник',
+  description: 'Тактический гений и харизматичный лидер, вдохновляющий союзников на поле боя и координирующий сложные маневры.',
+  hp: 10,
+  primaryAbility: 'charisma',
+  skills: ['Тактика', 'Убеждение', 'Запугивание', 'История', 'Атлетика'],
+  features: [
+    'Боевой приказ',
+    'Тактическое превосходство', 
+    'Вдохновляющее присутствие',
+    'Координация атаки',
+    'Стратегическое планирование'
+  ],
+  img: warlord
+}
 ]

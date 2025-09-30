@@ -1,17 +1,8 @@
 import { useCharacterStore } from '../stores/characterStore'
 import { CLASSES } from "../../utils/characterData/classes";
+import './ClassSelection.css'
 
-const gameMainContainerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    height: '90vh',
-    gap: 50,
-    padding: 40
-}
-
-export default function ClassSelection({ onNext, onBack }) {
+export default function ClassSelection({ onNext }) {
     const { selectClass } = useCharacterStore()
 
     const handleSelectClass = (classData) => {
@@ -20,13 +11,13 @@ export default function ClassSelection({ onNext, onBack }) {
     }
 
     return (
-        <div style={gameMainContainerStyle}>
-            <button onClick={onBack}>Назад</button>
-            <ul style={{ display: 'flex', listStyle: 'none'}}>
+        <div className='class-container'>
+            <ul className='class-list'>
                 {CLASSES.map(cls => {
-                    return <li onClick={() => handleSelectClass(cls)} key={cls.id}>
-                        <h3>{cls.name}</h3>
-                        <p>{cls.description}</p>
+                    return <li onClick={() => handleSelectClass(cls)} key={cls.id} className='class-list-item'>
+                        <img src={cls.img} alt="Изображение класса" className='class-img'/>
+                        <h3 className='class-title'>{cls.name}</h3>
+                        <p className='class-descr'>{cls.description}</p>
                     </li>
                 })}
             </ul>

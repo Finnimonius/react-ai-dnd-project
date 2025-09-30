@@ -40,7 +40,7 @@ export default function Game() {
     return (
         <section className='hero'>
                 {currentScreen === 'main' && <GameMain onStartCreation={() => goToStep('class')} />}
-                {currentScreen === 'class-selection' && <ClassSelection onNext={() => goToStep('race')} onBack={goBack} />}
+                {currentScreen === 'class-selection' && <ClassSelection onNext={() => goToStep('race')} />}
                 {currentScreen === 'race-selection' && <RaceSelection onNext={() => goToStep('game')} onBack={goBack} />}
                 {currentScreen === 'gameplay' && <Gameplay onBack={goBack} />}
         </section>
