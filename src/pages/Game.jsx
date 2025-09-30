@@ -6,13 +6,23 @@ import { useNavigate, useParams, Navigate } from "react-router-dom"
 import { useCharacterStore } from "../components/stores/characterStore"
 import './Game.css'
 
+const LoadingSpinner = () => (
+    <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh'
+    }}>
+        <Spin size="large" />
+    </div>
+)
+
 export default function Game() {
     const navigate = useNavigate()
     const { step } = useParams()
     const { hasCharacter } = useCharacterStore()
 
     const goToStep = (stepName) => navigate(`/play/${stepName}`)
-    const goBack = () => navigate(-1)
 
     const getCurrentScreen = () => {
         switch (step) {
@@ -39,10 +49,10 @@ export default function Game() {
 
     return (
         <section className='hero'>
-                {currentScreen === 'main' && <GameMain onStartCreation={() => goToStep('class')} />}
-                {currentScreen === 'class-selection' && <ClassSelection onNext={() => goToStep('race')} />}
-                {currentScreen === 'race-selection' && <RaceSelection onNext={() => goToStep('game')} onBack={goBack} />}
-                {currentScreen === 'gameplay' && <Gameplay onBack={goBack} />}
+            {currentScreen === 'main' && <GameMain onStartCreation={() => goToStep('class')} />}
+            {currentScreen === 'class-selection' && <ClassSelection onNext={() => goToStep('race')} />}
+            {currentScreen === 'race-selection' && <RaceSelection onNext={() => goToStep('game')} />}
+            {currentScreen === 'gameplay' && <Gameplay />}
         </section>
     )
 }
