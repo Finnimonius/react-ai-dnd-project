@@ -4,6 +4,7 @@ import RaceSelection from "../components/game/RaceSelection"
 import Gameplay from '../components/game/Gameplay'
 import { useNavigate, useParams, Navigate } from "react-router-dom"
 import { useCharacterStore } from "../components/stores/characterStore"
+import './Game.css'
 
 export default function Game() {
     const navigate = useNavigate()
@@ -37,11 +38,11 @@ export default function Game() {
     }
 
     return (
-        <>
-            {currentScreen === 'main' && <GameMain onStartCreation={() => goToStep('class')} />}
-            {currentScreen === 'class-selection' && <ClassSelection onNext={() => goToStep('race')} onBack={goBack} />}
-            {currentScreen === 'race-selection' && <RaceSelection onNext={() => goToStep('game')} onBack={goBack} />}
-            {currentScreen === 'gameplay' && <Gameplay onBack={goBack} />}
-        </>
+        <section className='hero'>
+                {currentScreen === 'main' && <GameMain onStartCreation={() => goToStep('class')} />}
+                {currentScreen === 'class-selection' && <ClassSelection onNext={() => goToStep('race')} onBack={goBack} />}
+                {currentScreen === 'race-selection' && <RaceSelection onNext={() => goToStep('game')} onBack={goBack} />}
+                {currentScreen === 'gameplay' && <Gameplay onBack={goBack} />}
+        </section>
     )
 }
