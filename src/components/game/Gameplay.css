@@ -1,0 +1,26 @@
+.gameplay-container{
+    display: flex;
+    width: 100%;
+}
+
+.gameplay-menu-container {
+    cursor: pointer;
+}
+
+.gameplay-menu {
+    max-width: 200px;
+    padding-top: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gameplay-splitter {
+    /* background-image: url('/src/assets/images/backgrounds/gameplay-back.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+

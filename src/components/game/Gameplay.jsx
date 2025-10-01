@@ -1,19 +1,9 @@
 import { useCharacterStore } from "../stores/characterStore"
 import { Splitter, Menu, ConfigProvider } from 'antd';
 import { useState } from "react";
-import {
-    AppstoreOutlined,
-    ContainerOutlined,
-    DesktopOutlined,
-    MailOutlined,
-    PieChartOutlined,
-} from '@ant-design/icons';
+import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, PieChartOutlined } from '@ant-design/icons';
 import './Gameplay.css'
-
-const gameMainContainerStyle = {
-    display: 'flex',
-    width: '100%',
-}
+import CityView from "./Locations/City/CityView";
 
 export default function Gameplay() {
     const { reset } = useCharacterStore()
@@ -62,33 +52,23 @@ export default function Gameplay() {
     ];
 
     return (
-        <div style={gameMainContainerStyle}>
-            <div onClick={toggleCollapsed} style={{ cursor: 'pointer' }}>
+        <div className="gameplay-container">
+            <div onClick={toggleCollapsed} className="gameplay-menu-container">
                 <Menu
+                    className="gameplay-menu"
                     defaultSelectedKeys={['1']}
                     mode="inline"
                     inlineCollapsed={collapsed}
                     items={items}
                     onClick={handleMenuClick}
-                    style={{ maxWidth: 200, paddingTop: 50, display: 'flex', flexDirection: 'column', gap: 15 }}
                 />
             </div>
-            <ConfigProvider
-                theme={{
-                    token: {
-                        Splitter: {
-                            colorPrimary: '#000103',
-                            colorFill: 'rgb(0,0,0)',
-                            controlItemBgActiveHover: 'rgb(0,0,0)',
-                            controlItemBgActive: 'rgb(0,0,0)',
-                        }
-                    }
-                }}
-            >
-                <Splitter style={{ minHeight: '90vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }} className="kek">
-                    <Splitter.Panel resizable={true} style={{ padding: '100px 40px 40px 100px' }} colorPrimary={'rgb(0,0,0)'}>
+            <ConfigProvider theme={{ token: { Splitter: { colorPrimary: '#000103', colorFill: 'white', controlItemBgActiveHover: 'rgb(0,0,0)', controlItemBgActive: 'rgb(0,0,0)', } } }}>
+                <Splitter style={{ minHeight: '90vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
+                    <Splitter.Panel resizable={true} className="gameplay-splitter">
+                        <CityView />
                     </Splitter.Panel>
-                    <Splitter.Panel min={'20%'} defaultSize={'40%'} max={'60%'} style={{ padding: 40 }} >
+                    <Splitter.Panel min={'20%'} defaultSize={'40%'} max={'60%'} style={{ padding: '100px 20px' }} className="gameplat-splitter-character">
                         <button onClick={reset}>Сбросить персонажа</button>
                     </Splitter.Panel>
                 </Splitter>

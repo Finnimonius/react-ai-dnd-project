@@ -6,17 +6,6 @@ import { useNavigate, useParams, Navigate } from "react-router-dom"
 import { useCharacterStore } from "../components/stores/characterStore"
 import './Game.css'
 
-const LoadingSpinner = () => (
-    <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-    }}>
-        <Spin size="large" />
-    </div>
-)
-
 export default function Game() {
     const navigate = useNavigate()
     const { step } = useParams()
