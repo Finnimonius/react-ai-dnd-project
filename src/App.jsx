@@ -6,6 +6,7 @@ import CharacterCreator from './pages/CharacterCreator'
 import Game from './pages/Game'
 import Rules from './pages/Rules'
 import NotFoundPage from './pages/Notfoundpage'
+import Gameplay from './components/game/Gameplay'
 
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
 
           <Route path='play' element={<Game />} />
           <Route path="/play/:step" element={<Game />} />
+          <Route path='/play/game/*' element={<Gameplay />} />
 
           <Route path='*' element={<NotFoundPage />} />
         </Route>

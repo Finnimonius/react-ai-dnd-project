@@ -1,21 +1,34 @@
-import { useCharacterStore } from "../stores/characterStore"
 import { Splitter, Menu, ConfigProvider } from 'antd';
 import { useState } from "react";
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, PieChartOutlined } from '@ant-design/icons';
-import './Gameplay.css'
+import './Gameplay.css';
+import { useCharacterStore } from "../stores/characterStore"
 import CityView from "./Locations/City/CityView";
-import { useGameStore } from "../stores/gameStore";
+import Portal from "./Locations/City/Portal";
+import Tavern from './Locations/City/Tavern';
+import Blacksmith from './Locations/City/Blacksmith';
+import { useNavigate, useRoutes } from 'react-router-dom';
 
-const locationComponent = {
-    city: CityView,
-}
+const gameRoutes = [
+  { path: '/', element: <CityView /> },
+  { path: '/portal', element: <Portal /> },
+  { path: '/tavern', element: <Tavern /> },
+  { path: '/blacksmith', element: <Blacksmith /> },
+//   { path: '/dungeon', element: <DungeonView /> },
+//   { path: '/forest', element: <ForestView /> },
+]
 
 export default function Gameplay() {
-    const { currentLocation } = useGameStore()
     const { reset } = useCharacterStore()
+    const navigate = useNavigate()
     const [collapsed, setCollapsed] = useState(true);
 
-    const CurrentLocation = locationComponent[currentLocation] || CityView
+    const routing = useRoutes(gameRoutes)
+
+    const handleReset = () => {
+        reset()
+        navigate('/play')
+    }
 
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
@@ -74,10 +87,10 @@ export default function Gameplay() {
             <ConfigProvider theme={{ token: { Splitter: { colorPrimary: '#000103', colorFill: 'white', controlItemBgActiveHover: 'rgb(0,0,0)', controlItemBgActive: 'rgb(0,0,0)', } } }}>
                 <Splitter style={{ minHeight: '90vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                     <Splitter.Panel resizable={true} className="gameplay-splitter">
-                        <CurrentLocation />
+                        {routing}
                     </Splitter.Panel>
                     <Splitter.Panel min={'20%'} defaultSize={'40%'} max={'60%'} style={{ padding: '100px 20px' }} className="gameplat-splitter-character">
-                        <button onClick={reset}>Сбросить персонажа</button>
+                        <button onClick={handleReset}>Сбросить персонажа</button>
                     </Splitter.Panel>
                 </Splitter>
             </ConfigProvider>
