@@ -4,20 +4,23 @@ export const LOCATIONS = {
     name: 'Одун Фелл',
     type: 'hub',
     availableActions: ['explore', 'shop', 'tavern', 'dungeon'],
-    connections: ['dungeon', 'forest', 'tavern']
+  },
+    blacksmith: {
+    id: 'blacksmith',
+    name: 'Кузнец',
+    type: 'hub',
+    availableActions: ['explore', 'shop', 'tavern', 'dungeon'],
   },
   dungeon: {
     id: 'dungeon', 
     name: 'Подземелье',
     type: 'adventure',
     availableActions: ['explore', 'combat', 'loot', 'return'],
-    connections: ['city']
   },
   forest: {
     id: 'forest',
     name: 'Древний лес', 
     type: 'adventure',
     availableActions: ['explore', 'hunt', 'gather', 'return'],
-    connections: ['city']
   }
 }

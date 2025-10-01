@@ -8,11 +8,10 @@ export const useGameStore = create(persist((set) => ({
     currentDungeon: null,
     currentOption: [],
 
-    enterDungeon: async (dungeonName) => {
+    enterLocation: async (locationId) => {
         set({
-            currentLocation: 'dungeon',
+            currentLocation: locationId,
             isLoading: true,
-            currentDungeon: dungeonName
         })
     }
 }),

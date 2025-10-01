@@ -4,10 +4,18 @@ import { useState } from "react";
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, PieChartOutlined } from '@ant-design/icons';
 import './Gameplay.css'
 import CityView from "./Locations/City/CityView";
+import { useGameStore } from "../stores/gameStore";
+
+const locationComponent = {
+    city: CityView,
+}
 
 export default function Gameplay() {
+    const { currentLocation } = useGameStore()
     const { reset } = useCharacterStore()
     const [collapsed, setCollapsed] = useState(true);
+
+    const CurrentLocation = locationComponent[currentLocation] || CityView
 
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
@@ -66,7 +74,7 @@ export default function Gameplay() {
             <ConfigProvider theme={{ token: { Splitter: { colorPrimary: '#000103', colorFill: 'white', controlItemBgActiveHover: 'rgb(0,0,0)', controlItemBgActive: 'rgb(0,0,0)', } } }}>
                 <Splitter style={{ minHeight: '90vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                     <Splitter.Panel resizable={true} className="gameplay-splitter">
-                        <CityView />
+                        <CurrentLocation />
                     </Splitter.Panel>
                     <Splitter.Panel min={'20%'} defaultSize={'40%'} max={'60%'} style={{ padding: '100px 20px' }} className="gameplat-splitter-character">
                         <button onClick={reset}>Сбросить персонажа</button>

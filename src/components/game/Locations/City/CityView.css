@@ -1,0 +1,9 @@
+.city-districts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    gap: 50px;
+    background-image: url('../../../../assets/images/backgrounds/cityView-back.jpg');
+    background-size: cover;
+}
