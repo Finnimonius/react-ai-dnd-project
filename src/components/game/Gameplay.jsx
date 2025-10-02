@@ -7,6 +7,7 @@ import CityView from "./Locations/City/CityView";
 import Portal from "./Locations/City/Portal";
 import Tavern from './Locations/City/Tavern';
 import Blacksmith from './Locations/City/Blacksmith';
+import DungeonView from './Locations/Dungeon/DungeonView';
 import { useNavigate, useRoutes } from 'react-router-dom';
 
 const gameRoutes = [
@@ -14,8 +15,7 @@ const gameRoutes = [
   { path: '/portal', element: <Portal /> },
   { path: '/tavern', element: <Tavern /> },
   { path: '/blacksmith', element: <Blacksmith /> },
-//   { path: '/dungeon', element: <DungeonView /> },
-//   { path: '/forest', element: <ForestView /> },
+  { path: '/dungeon', element: <DungeonView /> },
 ]
 
 export default function Gameplay() {
