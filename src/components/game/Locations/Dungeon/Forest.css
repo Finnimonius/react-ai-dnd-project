@@ -2,6 +2,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100%;
     padding: 100px 20px;
-    height: 100%;
+    gap: 20px;
+    background-image: url('../../../../assets/images/backgrounds/forest-back.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.forest-messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 70%;
+}
+
+.forest-message-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px 20px;
+    background-color: var(--primary-black);
+    border-radius: 20px;
+    min-height: 300px;
 }

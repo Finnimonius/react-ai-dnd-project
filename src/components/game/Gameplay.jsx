@@ -11,18 +11,17 @@ import DungeonView from './Locations/Dungeon/DungeonView';
 import { useNavigate, useRoutes } from 'react-router-dom';
 
 const gameRoutes = [
-  { path: '/', element: <CityView /> },
-  { path: '/portal', element: <Portal /> },
-  { path: '/tavern', element: <Tavern /> },
-  { path: '/blacksmith', element: <Blacksmith /> },
-  { path: '/dungeon', element: <DungeonView /> },
+    { path: '/', element: <CityView /> },
+    { path: '/portal', element: <Portal /> },
+    { path: '/tavern', element: <Tavern /> },
+    { path: '/blacksmith', element: <Blacksmith /> },
+    { path: '/dungeon', element: <DungeonView /> },
 ]
 
 export default function Gameplay() {
     const { reset } = useCharacterStore()
-    const navigate = useNavigate()
     const [collapsed, setCollapsed] = useState(true);
-
+    const navigate = useNavigate()
     const routing = useRoutes(gameRoutes)
 
     const handleReset = () => {
@@ -73,7 +72,7 @@ export default function Gameplay() {
     ];
 
     return (
-        <div className="gameplay-container">
+        <div className="gameplay-container gameplay-layout">
             <div onClick={toggleCollapsed} className="gameplay-menu-container">
                 <Menu
                     className="gameplay-menu"
@@ -87,9 +86,11 @@ export default function Gameplay() {
             <ConfigProvider theme={{ token: { Splitter: { colorPrimary: '#000103', colorFill: 'white', controlItemBgActiveHover: 'rgb(0,0,0)', controlItemBgActive: 'rgb(0,0,0)', } } }}>
                 <Splitter style={{ minHeight: '90vh', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
                     <Splitter.Panel resizable={true} className="gameplay-splitter">
-                        {routing}
+                        <div className="splitter-content-wrapper">
+                            {routing}
+                        </div>
                     </Splitter.Panel>
-                    <Splitter.Panel min={'20%'} defaultSize={'40%'} max={'60%'} style={{ padding: '100px 20px' }} className="gameplat-splitter-character">
+                    <Splitter.Panel min={'32%'} defaultSize={'32%'} max={'60%'} style={{ padding: '100px 20px' }} className="gameplat-splitter-character">
                         <button onClick={handleReset}>Сбросить персонажа</button>
                     </Splitter.Panel>
                 </Splitter>

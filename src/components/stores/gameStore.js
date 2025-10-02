@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-// import queryAI from "../../services/api";
+import queryAI from "../../services/api";
 
 export const useGameStore = create(
     persist(
-        (set) => ({
+        (set, get) => ({
             currentLocation: 'city',
             gameHistory: [],
             isLoading: false,
@@ -30,15 +30,16 @@ export const useGameStore = create(
                 })
 
 
-                setTimeout(() => {
-                    set({ isLoading: false })
-                }, 2000);
-                // try {
-                //     const data = await queryAI('Пришли мне рецепт плова')
-                //     set({ aiText: data, isLoading: false })
-                // } catch (error) {
-                //     set({ error: error.message, isLoading: false })
-                // }
+                // setTimeout(() => {
+                //     set({ isLoading: false })
+                // }, 2000);
+                try {
+                    const { currentLocation } = get();
+                    const data = await queryAI(`Начни рассказ истории в стиле D&D. Мы сейчас находимя в локации ${currentLocation}.`)
+                    set({ aiText: data, isLoading: false })
+                } catch (error) {
+                    set({ error: error.message, isLoading: false })
+                }
             },
 
             backToCity: () => {

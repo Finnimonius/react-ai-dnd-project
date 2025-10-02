@@ -1,8 +1,3 @@
-.gameplay-container{
-    display: flex;
-    width: 100%;
-}
-
 .gameplay-menu-container {
     cursor: pointer;
 }
@@ -16,6 +11,17 @@
     gap: 15px;
 }
 
+.gameplay-container {
+    display: flex;
+    width: 100%;
+}
 
+.gameplay-layout {
+    height: 90vh; 
+}
 
+.gameplay-layout .splitter-content-wrapper {
+    height: 100%;
+    overflow-y: auto;
+}
 
