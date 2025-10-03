@@ -5,19 +5,21 @@ import './Forest.css'
 import { NavigationButton } from "../../UI/ActionButtons";
 
 export default function Forest() {
-    const { aiText, isLoading, startGame } = useGameStore()
+    const { isLoading, startGame, gameHistory } = useGameStore()
 
     return (
         <div className="forest-container">
-            <NavigationButton onClick={startGame} descr={'Изучить локацию'} style={{width: 200}}/>
+            <NavigationButton onClick={startGame} descr={'Изучить локацию'} style={{ width: 200 }} disabled={gameHistory.length > 0}/>
             <div style={{ width: '100%' }} className="forest-messages-container">
-                <div className="forest-message-block">
-                    {isLoading ?
-                        <Spin indicator={<LoadingOutlined spin />} size="large" style={{ color: '#fff' }} />
-                        :
-                        <p>{aiText}</p>
-                    }
-                </div>
+                {gameHistory.map(history => (
+                    <div className="forest-message-block">
+                        {isLoading ?
+                            <Spin indicator={<LoadingOutlined spin />} size="large" style={{ color: '#fff' }} />
+                            :
+                            <><p>{history.aiText}</p>{history.directions.map(derection => <button>{derection}</button>)}</>
+                        }
+                    </div>
+                ))}
             </div>
         </div>
     )

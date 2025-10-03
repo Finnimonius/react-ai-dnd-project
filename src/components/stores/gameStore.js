@@ -1,42 +1,47 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import queryAI from "../../services/api";
+import { DUNGEONS } from "../../utils/data/locations";
 
 export const useGameStore = create(
     persist(
         (set, get) => ({
             currentLocation: 'city',
+            currentDungeon: null,
             gameHistory: [],
             isLoading: false,
-            currentDungeon: null,
-            currentOption: [],
             error: null,
             aiText: '',
 
-            enterLocation: async (location) => {
+            enterLocation: (location) => {
                 set({
                     currentLocation: location,
-                    isLoading: true
                 })
-
-                setTimeout(() => {
-                    set({ isLoading: false })
-                }, 500);
             },
 
             startGame: async () => {
                 set({
-                    isLoading: true
+                    isLoading: true,
+                    currentDungeon: 'wind_gorge'
                 })
 
+                const dungeon = getDungeon(DUNGEONS, get().currentDungeon)
+                const directions = getDirections(dungeon)
 
-                // setTimeout(() => {
-                //     set({ isLoading: false })
-                // }, 2000);
                 try {
-                    const { currentLocation } = get();
-                    const data = await queryAI(`Начни рассказ истории в стиле D&D. Мы сейчас находимя в локации ${currentLocation}.`)
-                    set({ aiText: data, isLoading: false })
+                    const { gameHistory } = get()
+                    const data = await queryAI(`Начни рассказ истории в стиле D&D. Мы сейчас находимся в локации ${dungeon.name}. И в конце предложи пойти на выбор ${directions}`)
+
+                    const historyEntry = {
+                        aiText: data,
+                        directions: directions.split(' '),
+                    }
+
+                    set({
+                        aiText: data,
+                        isLoading: false,
+                        gameHistory: [...gameHistory, historyEntry]
+                    })
                 } catch (error) {
                     set({ error: error.message, isLoading: false })
                 }
@@ -51,7 +56,15 @@ export const useGameStore = create(
 
         }),
         {
-            name: 'character-storage',
+            name: 'game-storage',
         }
     )
 )
+
+function getDungeon(dungeons, dungeonKey) {
+    return dungeons[dungeonKey]
+}
+
+function getDirections(dungeon) {
+    return dungeon.paths.map(path => path.directionName).join(' ')
+}
