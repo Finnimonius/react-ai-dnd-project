@@ -1,6 +1,4 @@
-// Объект всех локаций
 export const DUNGEONS = {
-  // СТАРТОВАЯ ЛОКАЦИЯ
   wind_gorge: {
     id: "wind_gorge",
     name: "Ущелье Ветров",
