@@ -1,6 +1,6 @@
 const SERVER_URL = 'http://localhost:3001';
 
-export default async function queryAI(prompt, temperature = 0.7) {
+export default async function queryAI(prompt: string, temperature: number = 0.7) {
     try {  
         const response = await fetch(`${SERVER_URL}/api/generate`, {
             method: 'POST',

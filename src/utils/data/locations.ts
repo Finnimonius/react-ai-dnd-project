@@ -8,15 +8,11 @@ export const DUNGEONS = {
         direction: "south",
         directionName: "Юг", 
         targetLocationId: "forgotten_path", 
-        stepsRequired: 2,
-        currentStep: 0 
       },
       { 
         direction: "southeast",
         directionName: "Юго-восток",  
         targetLocationId: "moon_lake", 
-        stepsRequired: 2,
-        currentStep: 0
       }
     ]
   },
@@ -30,8 +26,6 @@ export const DUNGEONS = {
         direction: "north",
         directionName: "Север", 
         targetLocationId: "wind_gorge", 
-        stepsRequired: 2,
-        currentStep: 0
       }
     ]
   },
@@ -45,8 +39,6 @@ export const DUNGEONS = {
         direction: "northwest",
         directionName: "Северо-запад", 
         targetLocationId: "wind_gorge", 
-        stepsRequired: 2,
-        currentStep: 0
       }
     ]
   }

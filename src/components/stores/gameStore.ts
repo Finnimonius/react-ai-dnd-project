@@ -3,7 +3,26 @@ import { persist } from "zustand/middleware";
 import queryAI from "../../services/api";
 import { DUNGEONS } from "../../utils/data/locations";
 
-export const useGameStore = create(
+type GameHistory = {
+    aiText: string,
+    directions: string[],
+}
+
+type CurrentLocation = 'city' | 'forest' | 'desert'
+
+interface GameStore {
+    currentLocation: CurrentLocation,
+    currentDungeon: string | null,
+    gameHistory: Array<GameHistory>,
+    isLoading: boolean,
+    error: string | null,
+    aiText: string,
+    enterLocation: (location: CurrentLocation) => void,
+    startGame: () => void,
+    backToCity: () => void,
+}
+
+export const useGameStore = create<GameStore>()(
     persist(
         (set, get) => ({
             currentLocation: 'city',
@@ -22,10 +41,14 @@ export const useGameStore = create(
             startGame: async () => {
                 set({
                     isLoading: true,
-                    currentDungeon: 'wind_gorge'
+                    currentDungeon: 'wind_gorge', 
                 })
 
                 const dungeon = getDungeon(DUNGEONS, get().currentDungeon)
+                if (!dungeon) {
+                    set({ error: "Данж не найден", isLoading: false });
+                    return;
+                }
                 const directions = getDirections(dungeon)
 
                 try {
@@ -43,13 +66,14 @@ export const useGameStore = create(
                         gameHistory: [...gameHistory, historyEntry]
                     })
                 } catch (error) {
-                    set({ error: error.message, isLoading: false })
+                    set({ error: 'Мастер не смог найти историю', isLoading: false })
                 }
             },
 
             backToCity: () => {
                 set({
                     currentLocation: 'city',
+                    currentDungeon: null,
                     gameHistory: [],
                 })
             }
@@ -61,10 +85,27 @@ export const useGameStore = create(
     )
 )
 
-function getDungeon(dungeons, dungeonKey) {
-    return dungeons[dungeonKey]
+type Path = {
+    direction: 'south' | 'southeast' | 'southwest' | 'west' | 'north' | 'northwest' | 'northeast',
+    directionName: 'Юг' | 'Юго-восток' | 'Юго-запад' | 'Запад' | 'Север' | 'Северо-запад' | 'Северо-восток',
+    targetLocationId: string,
 }
 
-function getDirections(dungeon) {
-    return dungeon.paths.map(path => path.directionName).join(' ')
+type Dungeon = {
+    id: string,
+    name: string,
+    description: string,
+    paths: Array<Path>,
+}
+
+type Dungeons = typeof DUNGEONS;
+
+function getDungeon(dungeons: Dungeons, dungeonKey: string | null): Dungeon | undefined {
+    if (!dungeonKey) return undefined;
+    return (dungeons as Record<string, Dungeon>)[dungeonKey];
+}
+
+function getDirections(dungeon: Dungeon | undefined): string {
+    if (!dungeon) return "";
+    return dungeon.paths.map(path => path.directionName).join(' ');
 }
